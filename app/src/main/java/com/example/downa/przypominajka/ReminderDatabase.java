@@ -14,11 +14,11 @@ public class ReminderDatabase {
     static final public String TABLE_NAME = "Reminders";
     private ReminderDbHelper DbHelper;
 
-    public ReminderDatabase(Context context){
-        this.DbHelper= new ReminderDbHelper(context);
+    public ReminderDatabase(Context context) {
+        this.DbHelper = new ReminderDbHelper(context);
     }
 
-    public void addReminder(Reminder reminder){
+    public void addReminder(Reminder reminder) {
         SQLiteDatabase db = DbHelper.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -52,14 +52,22 @@ public class ReminderDatabase {
 
         String name = cursor.getString(0);
         String place = cursor.getString(1);
-        double pion= cursor.getDouble(2);
-        double poziom= cursor.getDouble(3);
+        double pion = cursor.getDouble(2);
+        double poziom = cursor.getDouble(3);
 
         return new Reminder(name, place, pion, poziom);
     }
 
+    public void removeReminder(String position){
+        SQLiteDatabase db = DbHelper.getWritableDatabase();
+
+        db.delete("Reminders","name" + " = ?",new String[] {position});
+
+
+    }
+
     public int getReminderNumber() {
-        SQLiteDatabase db =  DbHelper.getReadableDatabase();
+        SQLiteDatabase db = DbHelper.getReadableDatabase();
 
         return (int) DatabaseUtils.queryNumEntries(db, TABLE_NAME, null, null);
     }

@@ -9,26 +9,26 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class ReminderDbHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION= 1;
+    private static final int DATABASE_VERSION = 1;
 
-    static final String DATABASE_NAME="Reminder";
+    static final String DATABASE_NAME = "Reminder";
 
     private static final String TABLE_CREATE =
             "CREATE TABLE " + "Reminders" + " (" +
                     "Name" + " TEXT," +
                     "Place" + " TEXT," +
-                    "Pion"  + " REAL," +
+                    "Pion" + " REAL," +
                     "Poziom" + " REAL);";
 
 
     private static final String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + "Reminders";
 
     public ReminderDbHelper(Context context) {
-        super(context, DATABASE_NAME , null, DATABASE_VERSION);
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db){
+    public void onCreate(SQLiteDatabase db) {
         db.execSQL(TABLE_CREATE);
     }
 

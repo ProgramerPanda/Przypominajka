@@ -14,31 +14,31 @@ import android.widget.Toast;
 public class AddReminder extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add);
-        creatReminder();
+        createReminder();
     }
 
-    private boolean isEmpty(EditText etText){
-        if(etText.getText().toString().trim().length()>0){
+    private boolean isEmpty(EditText etText) {
+        if (etText.getText().toString().trim().length() > 0) {
             return false;
-        } else{
+        } else {
             return true;
         }
     }
 
-    private void creatReminder(){
+    private void createReminder() {
         final EditText n = (EditText) findViewById(R.id.name);
         final EditText p = (EditText) findViewById(R.id.place);
 
         Button save = (Button) findViewById(R.id.saveButt);
 
-        save.setOnClickListener(new View.OnClickListener(){
+        save.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View v){
-                if((isEmpty(n)==false)||(isEmpty(p)==false)){
+            public void onClick(View v) {
+                if ((isEmpty(n) == false) || (isEmpty(p) == false)) {
                     String nameReminder = n.getText().toString();
                     String placeReminder = p.getText().toString();
                     saveReminder(new Reminder(nameReminder, placeReminder, Cords.getPion(), Cords.getPoziom()));
@@ -48,7 +48,8 @@ public class AddReminder extends AppCompatActivity {
             }
         });
     }
-    private void saveReminder(Reminder reminder){
+
+    private void saveReminder(Reminder reminder) {
         ReminderDatabase reminderDB = new ReminderDatabase(this);
         reminderDB.addReminder(reminder);
 
@@ -57,9 +58,11 @@ public class AddReminder extends AppCompatActivity {
         finish();
     }
 
-    public boolean onOptionsItemSelected(MenuItem item){
+
+
+    public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if(id== android.R.id.home){
+        if (id == android.R.id.home) {
             this.finish();
             return true;
         }

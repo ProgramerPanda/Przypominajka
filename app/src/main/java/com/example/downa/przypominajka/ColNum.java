@@ -13,15 +13,15 @@ public class ColNum {
 
     private SharedPreferences preferences;
 
-    public ColNum(Context context){
+    public ColNum(Context context) {
         preferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
     }
 
-    public void saveSelectedNumberOfColumns(int numberOfColumns){
+    public void saveSelectedNumberOfColumns(int numberOfColumns) {
         preferences.edit().putInt(KEY_NUM_COLUMNS, numberOfColumns).commit();
     }
 
-    public int getSelectedNumbersOfColumns(){
-        return preferences.getInt(KEY_NUM_COLUMNS,1);
+    public int getSelectedNumbersOfColumns() {
+        return preferences.getInt(KEY_NUM_COLUMNS, 1);
     }
 }

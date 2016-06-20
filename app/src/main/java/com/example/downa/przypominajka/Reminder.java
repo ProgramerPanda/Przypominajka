@@ -30,10 +30,9 @@ public class Reminder implements Serializable {
     }
 
 
-
-    public Reminder(String name, String place, double pion, double poziom){
+    public Reminder(String name, String place, double pion, double poziom) {
         this.name = name;
-        this.place =place;
+        this.place = place;
         this.pion = pion;
         this.poziom = poziom;
     }
