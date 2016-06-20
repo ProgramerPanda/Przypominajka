@@ -62,5 +62,13 @@ public class ReminderAdapter extends BaseAdapter{
 
         TextView ReminderPlace = (TextView) ReminderView.findViewById(R.id.reminder_place);
         ReminderPlace.setText(reminder.getPlace());
+
+        TextView Pion = (TextView) ReminderView.findViewById(R.id.Pion);
+        Double temp = reminder.getPion();
+        Pion.setText(Double.toString(temp));
+
+        TextView Poziom = (TextView) ReminderView.findViewById(R.id.Poziom);
+        temp = reminder.getPoziom();
+        Poziom.setText(Double.toString(temp));
     }
 }

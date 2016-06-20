@@ -16,7 +16,10 @@ public class ReminderDbHelper extends SQLiteOpenHelper {
     private static final String TABLE_CREATE =
             "CREATE TABLE " + "Reminders" + " (" +
                     "Name" + " TEXT," +
-                    "Place" + " TEXT);" ;
+                    "Place" + " TEXT," +
+                    "Pion"  + " REAL," +
+                    "Poziom" + " REAL);";
+
 
     private static final String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + "Reminders";
 

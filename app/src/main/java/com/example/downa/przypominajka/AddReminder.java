@@ -41,7 +41,7 @@ public class AddReminder extends AppCompatActivity {
                 if((isEmpty(n)==false)||(isEmpty(p)==false)){
                     String nameReminder = n.getText().toString();
                     String placeReminder = p.getText().toString();
-                    saveReminder(new Reminder(nameReminder, placeReminder));
+                    saveReminder(new Reminder(nameReminder, placeReminder, Cords.getPion(), Cords.getPoziom()));
                 } else {
                     Toast.makeText(getApplicationContext(), "Fill missing information", Toast.LENGTH_SHORT).show();
                 }

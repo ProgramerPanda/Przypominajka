@@ -24,6 +24,8 @@ public class ReminderDatabase {
         ContentValues values = new ContentValues();
         values.put("name", reminder.getName());
         values.put("place", reminder.getPlace());
+        values.put("pion", reminder.getPion());
+        values.put("poziom", reminder.getPoziom());
 
 
         db.insert(TABLE_NAME, null, values);
@@ -33,7 +35,7 @@ public class ReminderDatabase {
         SQLiteDatabase db = DbHelper.getReadableDatabase();
 
         String[] projection = {
-                "name", "place"
+                "name", "place", "pion", "poziom"
         };
 
         Cursor cursor = db.query(
@@ -50,8 +52,10 @@ public class ReminderDatabase {
 
         String name = cursor.getString(0);
         String place = cursor.getString(1);
+        double pion= cursor.getDouble(2);
+        double poziom= cursor.getDouble(3);
 
-        return new Reminder(name, place);
+        return new Reminder(name, place, pion, poziom);
     }
 
     public int getReminderNumber() {
